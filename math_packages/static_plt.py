@@ -48,6 +48,9 @@ def chi2_QQ(X , axes):
     n , p = X.shape
     chi2_plist = chi2.ppf((np.array(range(1,len(temp)+1))-0.5)/len(temp) , p)
     d = distance.Mahalanobis_Distance(X)
+    inf = np.min([d,chi2_plist]) ; sup = np.max([d,chi2_plist])
+    x = np.arange(inf , sup + 0.1 , 0.1)
+    axes.plot(x , x , color = 'green') #* 绘制y=x标准线
     axes.scatter(chi2_plist , np.sort(d) , s = 9 , alpha = 0.6)
     
 def test():
