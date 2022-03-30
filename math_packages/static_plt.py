@@ -7,8 +7,8 @@ from scipy.stats import f # F分布相关的api
 from scipy.stats import norm # 标准正太的api
 from scipy.stats import chi2 # 卡方分布的api
 from scipy.stats import t # t分布的api
-import distance
-import static_test
+from math_packages import distance
+from math_packages import static_test
 
 #*----------------------------------------------------------------
 mpl.rcParams['font.sans-serif'] = ['SimHei'] # *允许显示中文
