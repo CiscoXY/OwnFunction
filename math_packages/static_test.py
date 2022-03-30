@@ -6,7 +6,7 @@ from scipy.stats import chi2 # 卡方分布的api
 from scipy.stats import t # t分布的api
 
 
-from math_packages import distance
+from . import distance
 
 def T_2_test(X , mu_0):
     '''
