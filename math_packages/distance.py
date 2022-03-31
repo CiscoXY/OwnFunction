@@ -11,3 +11,10 @@ def Mahalanobis_Distance(X):
     for i in range(n):
         dist[i] = np.matmul(np.matmul(X[i] - mu , np.linalg.inv(S)) , (X[i] - mu).T)
     return dist
+
+if __name__=='__main__':
+    a = np.array([1,2,3,4])
+    b = np.array([1,2,3,4])
+    c = [np.array([1,2,3,5]) , [1,2,3] , [2,2]]
+    print(a*b)
+    print(c)
