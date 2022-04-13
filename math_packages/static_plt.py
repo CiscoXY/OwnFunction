@@ -25,10 +25,11 @@ def norm_QQ(X , axes , standardized = True):
     绘制标准正态QQ图
     传进来一个一维数组,和要绘制的axes(plt的subplot,以及是否要正则化的bool值)
     '''
-    temp = X
-    if(X.ndim != 1):
+    temp = X.values
+    if(temp.ndim != 1):
         print('数组并非一维,请选用多元正太QQ图')
         exit(-1)
+    name = X.name #* 获取这个series的name
     norm_plist = norm.ppf((np.array(range(1,len(temp)+1))-0.5)/len(temp) , 0 , 1) #* 构造标准正太的分位数list
     if(standardized):
         temp = (temp - np.mean(temp))/np.sqrt(np.var(temp)) #*对X进行标准化，因为如果X~N(a,b),则X-a/sqrt(b) ~ N(0 , 1)
@@ -36,6 +37,7 @@ def norm_QQ(X , axes , standardized = True):
         x = np.arange(inf , sup + 0.1 , 0.1)
         axes.plot(x , x , color = 'green') #* 绘制y=x标准线
     axes.scatter(norm_plist , np.sort(temp) , s = 9 , alpha = 0.6)
+    axes.set_title(name)
 
 def chi2_QQ(X , axes):
     '''
